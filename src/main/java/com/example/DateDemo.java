@@ -77,7 +77,7 @@ public class DateDemo {
         System.out.println("Date is: " + localDateTime);
     }
 
-    }
+
 
     //java.time  Instant class - helpful
     public static void main(String[] args) throws ParseException {
@@ -86,7 +86,6 @@ public class DateDemo {
        //handleTimeZones();
        //parseFormatDates();
        //createDate();
-        instantDates();
     }
 
 }

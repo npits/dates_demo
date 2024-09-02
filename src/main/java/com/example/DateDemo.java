@@ -1,5 +1,10 @@
 package com.example;
 
+import com.aayushatharva.brotli4j.common.annotations.Local;
+
+import java.time.LocalDateTime;
+import java.util.Date;
+
 /**
  * Why prefer the new Date/Time APIs - java.time over the old java.util.Date?
  * The new java date api (java.time) can:
@@ -9,9 +14,20 @@ package com.example;
 
 public class DateDemo {
 
-    //thread safety demonstration
+    //immutability demonstration
     public static void makeThreadSafe(){
+        //java.uti.date
+        Date date = new Date();
+        System.out.println("Original date: " + date);
+        date.setTime(10000L);
+        System.out.println("Original date modified: " + date + "\n");
 
+        //java.time.LocalDateTime
+        LocalDateTime localDateTime = LocalDateTime.now();
+        System.out.println("Original date: " + localDateTime);
+        LocalDateTime newlocalDateTime = localDateTime.plusDays(1);
+        System.out.println("Original date unmodified: " + localDateTime);
+        System.out.println("New date modified: " + newlocalDateTime);
     }
 
     //time-zone handling
@@ -29,9 +45,11 @@ public class DateDemo {
     public static void createDate(){
 
     }
+
+    //java.time  Instant class - helpful
     public static void main(String[] args){
 
-       //makeThreadSafe();
+       makeThreadSafe();
        //handleTimeZones();
        //parseFormatDates();
        //createDate();

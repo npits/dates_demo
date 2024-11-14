@@ -20,10 +20,11 @@ import java.util.TimeZone;
 public class DateDemo {
 
     //immutability demonstration
-    public static void makeThreadSafe(){
+    public static void makeImmutable(){
         //java.uti.date
         Date date = new Date();
         System.out.println("Original date: " + date);
+        date.setTime(date.getTime()+1000);
         System.out.println("Original date modified: " + date + "\n");
 
         //java.time.LocalDateTime
@@ -82,10 +83,18 @@ public class DateDemo {
     //java.time  Instant class - helpful
     public static void main(String[] args) throws ParseException {
 
-       //makeThreadSafe();
+       //makeImmutable();
        //handleTimeZones();
        //parseFormatDates();
-       //createDate();
+       createDate();
+       Instant instant = Instant.now();
+       ZonedDateTime zonedDateTime;
+       LocalDate localDate = LocalDate.now();
+       LocalDateTime localDateTime = LocalDateTime.ofInstant(instant, ZoneId.systemDefault());
+       LocalTime localTime = LocalTime.now();
+       OffsetTime offsetTime = OffsetTime.now();
+       OffsetDateTime offsetDateTime = OffsetDateTime.now();
+
     }
 
 }
